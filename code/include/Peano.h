@@ -72,7 +72,7 @@ namespace Peano
 	template<class B>				struct Addition<Z, B>				{ using result = B; };
 	template<class A, class B>		struct Addition<S<A>, B>			{ using result = S<typename Addition<A, B>::result>; };
 	template<class A, class B>		struct Addition<NEG<A>, B>			{ using result = Negate<typename Addition<A, Negate<B>>::result>; };
-	template<class A, class B>		struct Addition<S<A>, NEG<S<B>>>	{ using result = typename Addition<A, NEG<B>>::result; };
+	template<class A, class B>		struct Addition<S<A>, NEG<S<B>>>	{ using result = typename Addition<A, Negate<B>>::result; };
 	template<class A, class B>		using Add = typename Addition<A, B>::result;
 
 	// Define Subtraction
